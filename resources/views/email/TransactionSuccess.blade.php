@@ -108,7 +108,7 @@
                           <tbody>
                             <tr>
                               <td style="width:180px;">
-                                <img height="auto" src="images-email/logo-email-nomads.png" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="180" />
+                                <img height="auto" src="{{url('front-end/images/logo@2x.png')}}" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="180" />
                               </td>
                             </tr>
                           </tbody>
@@ -164,7 +164,7 @@
                           <tbody>
                             <tr>
                               <td style="width:550px;">
-                                <img height="auto" src="images-email/nusa-penida-email.jpg" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="550" />
+                                <img height="auto" src="{{ url('storage/', $data->travel_package->galleries[0]->image)}}" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="550" />
                               </td>
                             </tr>
                           </tbody>
@@ -196,8 +196,8 @@
                           <tbody>
                             <tr>
                               <td align="left" style="font-size:0px;padding:10px 25px;padding-right:25px;padding-left:25px;word-break:break-word;">
-                                <div style="font-family:Assistant, Helvetica, Arial, sans-serif;font-size:18px;line-height:28px;text-align:left;color:#071C4D;">Hi, Ferri Yusra <br />
-                                  <br /> Tiket digital kamu sudah berhasil dicetak <br /> Booking ID <strong>#22081999</strong>
+                                <div style="font-family:Assistant, Helvetica, Arial, sans-serif;font-size:18px;line-height:28px;text-align:left;color:#071C4D;">Hi, {{$data->user->name}}<br />
+                                  <br /> Tiket digital kamu sudah berhasil dicetak <br /> Booking ID <strong>#{{$data->id}}</strong>
                                 </div>
                               </td>
                             </tr>
@@ -207,14 +207,12 @@
                                   <tr>
                                     <td colspan="3">Members</td>
                                   </tr>
+                                  @foreach ($data->details as $item)
                                   <tr>
-                                    <td><strong>Yusra Ferri</strong></td>
-                                    <td style="text-align: right">Indonesia, IDN</td>
+                                    <td><strong>{{$item->username}}</strong></td>
+                                    <td style="text-align: right">{{$item->nationality}}</td>
                                   </tr>
-                                  <tr>
-                                    <td><strong>Yusro Ferro</strong></td>
-                                    <td style="text-align: right">Indonesia, IDN</td>
-                                  </tr>
+                                  @endforeach
                                 </table>
                               </td>
                             </tr>
@@ -226,11 +224,11 @@
                                   </tr>
                                   <tr>
                                     <td><strong>Departure</strong></td>
-                                    <td style="text-align: right">Nusa Penida</td>
+                                    <td style="text-align: right">{{$data->travel_package->title}}</td>
                                   </tr>
                                   <tr>
                                     <td><strong>Date and Time</strong></td>
-                                    <td style="text-align: right">Thu, 20 Jan 2021</td>
+                                    <td style="text-align: right">{{$data->travel_package->departure_date}}</td>
                                   </tr>
                                 </table>
                               </td>
@@ -241,7 +239,7 @@
                                   <tbody>
                                     <tr>
                                       <td align="center" bgcolor="#FF9E53" role="presentation" style="border:none;border-radius:10px;cursor:auto;mso-padding-alt:10px 25px;background:#FF9E53;" valign="middle">
-                                        <p style="display:inline-block;background:#FF9E53;color:#FFFFFF;font-family:Assistant, Helvetica, Arial, sans-serif;font-size:18px;font-weight:bold;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;mso-padding-alt:0px;border-radius:10px;"> Check Detail </p>
+                                        <a href=""{{ url('checkout/' . $data->id ) }} style="display:inline-block;background:#FF9E53;color:#FFFFFF;font-family:Assistant, Helvetica, Arial, sans-serif;font-size:18px;font-weight:bold;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;mso-padding-alt:0px;border-radius:10px;"> Check Detail </a>
                                       </td>
                                     </tr>
                                   </tbody>
@@ -300,7 +298,7 @@
                         <table cellpadding="0" cellspacing="0" width="100%" border="0" style="color:#000000;font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:22px;table-layout:auto;width:100%;border:none;">
                           <tr>
                             <td style="width: 50px">
-                              <img src="images-email/ic_language.png" width="50" />
+                              <img src="{{ url('front-end/images/ic_support.png')}}" width="50px" />
                             </td>
                             <td style="
                 font-size: 18px;
